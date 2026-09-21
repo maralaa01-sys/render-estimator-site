@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Render Estimator</title>
+<meta name="description" content="An estimating tool for construction fit-out: the estimator builds the төсөв inside it, and Excel is an export.">
+<style>
+  :root{
+    --ink:#16191d; --dim:#5b646f; --line:#e2e6ea; --bg:#fcfcfd;
+    --accent:#1f6feb; --panel:#f4f6f8;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#e9ecef; --dim:#98a2ad; --line:#2a3037; --bg:#131619;
+      --accent:#6ea8ff; --panel:#1a1e23;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e9ecef; --dim:#98a2ad; --line:#2a3037; --bg:#131619;
+    --accent:#6ea8ff; --panel:#1a1e23;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  main{max-width:46rem;margin:0 auto;padding:5rem 16px 7rem}
+  header{margin-bottom:3.5rem}
+  h1{font-size:2.1rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+  .lede{font-size:1.15rem;color:var(--dim);margin:0;max-width:34rem}
+  h2{font-size:.82rem;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--dim);margin:3.5rem 0 1rem;font-weight:600}
+  h3{font-size:1rem;margin:1.6rem 0 .3rem}
+  p{margin:.7rem 0}
+  .two{display:grid;gap:1.6rem;grid-template-columns:1fr 1fr}
+  @media (max-width:640px){.two{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:1.1rem 1.2rem}
+  .card h3{margin-top:0}
+  .card p{margin:.3rem 0 0;color:var(--dim);font-size:.94rem}
+  .stat{display:flex;gap:1.5rem;flex-wrap:wrap;margin:1.2rem 0 0;padding:0;list-style:none}
+  .stat li{flex:1 1 8rem}
+  .stat b{display:block;font-size:1.8rem;line-height:1.1;letter-spacing:-.02em}
+  .stat span{color:var(--dim);font-size:.88rem}
+  ul.plain{padding-left:1.1rem}
+  ul.plain li{margin:.4rem 0}
+  .rule{border:0;border-top:1px solid var(--line);margin:3.5rem 0 0}
+  footer{color:var(--dim);font-size:.9rem;margin-top:1.4rem}
+  .mn{font-style:normal}
+  em.q{color:var(--ink);font-style:normal;background:var(--panel);
+    padding:.08em .3em;border-radius:3px}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Render Estimator</h1>
+    <p class="lede">An estimating tool for construction fit-out. The estimator builds
+      the <span class="mn">төсөв</span> inside it, and Excel is an export — not a workspace.</p>
+  </header>
+
+  <h2>Two halves, meeting at the line list</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Authoring</h3>
+      <p>Add a work and the tool proposes the ones that usually follow, ranked by where
+        the suggestion came from — a named build-up, a sequencing rule, or plain
+        co-occurrence — each printed with its evidence and sample size.</p>
+    </div>
+    <div class="card">
+      <h3>Pricing</h3>
+      <p>An estimate is data, not a folder of workbooks. Versions are immutable and each
+        carries a reason. Rate books are dated and never edited, so an old quote still
+        computes and inflation is measurable.</p>
+    </div>
+  </div>
+
+  <h2>From drawings</h2>
+  <p>A drawing set carries its own quantified finish schedule: every material with its
+    mark, its location and its area. The tool reads that schedule, maps each finish to a
+    norm code, and proposes priced lines — each citing the page and the exact figure it
+    came from.</p>
+
+  <p>How much of a quote is derivable that way was an open question, so it was measured
+    against one completed fit-out project's issued quote:</p>
+
+  <ul class="stat">
+    <li><b>34%</b><span>of the works the estimator actually priced, recovered from the
+      drawings alone</span></li>
+    <li><b>3</b><span>quantities that matched exactly, to the square metre</span></li>
+    <li><b>0</b><span>quantities invented — a figure not printed on the page is refused</span></li>
+  </ul>
+
+  <p>The other two thirds are substrate, reinforcement, preparation and site work — what
+    a finish schedule never shows. That is what the build-up library is for. Neither half
+    reaches a full quote alone; together they plausibly do.</p>
+
+  <h2>What it refuses to do</h2>
+  <ul class="plain">
+    <li><strong>No language model in the arithmetic or the ranking.</strong> A model reads
+      and matches; it never counts and never names a code. Every figure traces to a norm
+      row, a material price or a past estimate line.</li>
+    <li><strong>It never invents a rate.</strong> Where no norm exists, the line is
+      emitted unpriced carrying the reason, not quietly filled with a plausible number.</li>
+    <li><strong>A typed correction is evidence.</strong> It prices the line, and it is
+      recorded dated and attributed, so using the tool is what stops the masters going
+      stale.</li>
+    <li><strong>Every number it reports is verifiable.</strong> A quantity read off a
+      drawing must appear on that page; a measured one can be drawn back onto the drawing
+      that produced it.</li>
+  </ul>
+
+  <h2>Status</h2>
+  <p>In use and still being built. Rate book, versioned estimates, house-format export,
+    the build-up library, the drawing surface and the drawing takeoff are working.</p>
+
+  <hr class="rule">
+  <footer>Internal tool, Render. This page describes the system; it holds no project,
+    client or price data.</footer>
+</main>
+</body>
+</html>
